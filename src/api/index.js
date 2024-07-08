@@ -1,0 +1,1 @@
+export const getServicios = async () => await fetch('https://wordpress-1266087-4562991.cloudwaysapps.com/wp-json/wp/v2/servicios').then(res => res.json())

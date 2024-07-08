@@ -1,7 +1,14 @@
-import Image from "next/image";
+import { getServicios } from "@/api";
+import { Servicios } from "@/components/Servicios/Servicios";
 
-export default function Home() {
-    
+
+
+
+export default async function Home() {
+    let servicios  = await getServicios()
+
+    console.log(servicios.map(({id, title, acf})=>({id, title: title.rendered, acf})))
+
     return (
         <main className="flex flex-col items-center justify-between w-full min-h-screen">
             <section className="relative felx flex-col justify-start items-start w-full h-screen overflow-hidden" id="hero">
@@ -10,16 +17,15 @@ export default function Home() {
                     
                 </div> */}
 
-                <div class="wrapper">
-                    <h1 class="item item1">TECHNICODERS - </h1>
-                    <h1 class="item item2">TECHNICODERS - </h1>
-                    <h1 class="item item3">TECHNICODERS - </h1>
-                    <h1 class="item item4">TECHNICODERS - </h1>
-                    <h1 class="item item5">TECHNICODERS - </h1>
-                    <h1 class="item item6">TECHNICODERS - </h1>
-                    <h1 class="item item7">TECHNICODERS - </h1>
-                    <h1 class="item item8">TECHNICODERS - </h1>
-                
+                <div className="wrapper">
+                    <h1 className="item item1">TECHNICODERS - </h1>
+                    <h1 className="item item2">TECHNICODERS - </h1>
+                    <h1 className="item item3">TECHNICODERS - </h1>
+                    <h1 className="item item4">TECHNICODERS - </h1>
+                    <h1 className="item item5">TECHNICODERS - </h1>
+                    <h1 className="item item6">TECHNICODERS - </h1>
+                    <h1 className="item item7">TECHNICODERS - </h1>
+                    <h1 className="item item8">TECHNICODERS - </h1>                
                 </div> 
                
                 <div className="flex gap-2 justyfy-center items-center h-1/3 w-full bg-slate-600 p-3">
@@ -46,6 +52,7 @@ export default function Home() {
                 
                 </div>
             </section>
+            <Servicios servicios={servicios} />
         </main>
     );
 }
