@@ -2,7 +2,10 @@ import { getServicios } from "@/api";
 import { Servicios } from "@/components/Servicios/Servicios";
 
 
-
+export const metadata = () => ({
+    title: 'Página | Inicio', 
+    description: 'Página de inicio web Technicoders'
+})
 
 export default async function Home() {
     let servicios  = await getServicios()
